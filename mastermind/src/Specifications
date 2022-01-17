@@ -1,0 +1,60 @@
+When a player hits the check button :
+
+    1. The color is in the secret box and it is in the right place. //2
+    2. The color is in the secret box but not in the right place. //1
+    3. The color doesn't belong to the box. //0
+
+Now user will narrow down the possibilities and he/she will guess the code.
+
+Important : Order of the feedback doesn't match with order of the colors in the secret box. //sort feedback
+
+1st thing first:
+
+How to represent that vertical box and guess ma be.
+    So let say, I use array/map
+    If array:
+        I will need to take two array as arg and then I can return feedback based on comparison.
+
+        1. Create variables to keep track of when an item is completely correct or partially correct.
+        2. Create an object to return both the guess and the feedback at the end of the function.
+        3. Begin a for loop that will check whether there are any indexes that are equal in both arrays, or whether there are any elements in the guess that are included in the code but not at the correct index, 
+        and update the variables we declared earlier accordingly.
+        4. Once we know how many are correct and how many are included, we can determine how many are wrong by subtracting the total or correct and included characters from the total of 4.
+        5. Return the feedback array.
+
+And good thing is array size is 4 only, so yeah, it's fixed ^_^
+
+But But But--------    :)
+
+there is case when you use array
+
+arr1 = [1,1,1,1] //user guess //boolean array to check i
+arr2 = [1,2,3,4] //valid code
+
+So, your function will return 1 fully correct and 3 partial correct, but not rightly placed.
+
+why not map because elements should be unique :(((())))
+
+
+gameRow() 
+1. const colorPicker
+2. User gameRow
+    played, active and playNext
+
+3. Check: boolean
+4. rowCircle
+5. feedback
+    feedbackCircle
+chooseColor
+setColor
+
+game (){
+    1. gameRow()
+    2. winStatus : boolean
+        false
+            setFeedback
+        true
+            return and ask again, new game()
+
+}
+

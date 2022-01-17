@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+html {
+  box-sizing: border-box;
+  background-color: #E2DADD;
+  font-family: 'Cabin', sans-serif;
+}
+
+#root {  
+  text-align: center;
+}
+
+#root h2 {
+  font-size: 2em;
+  margin: 0.67em 0 0.15em 0;  
+}
+
+.rules {
+  margin: 0.33em auto 0.8em auto;
+  max-width: 450px;
+}
+
+.rules h3 {
+  font-size: 1.05em;
+  margin: 5px 0 0 0;
+  color: #333;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.rules p {
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  margin: 5px 1em;
+  font-size: 0.92em;
+  color: #666;
+}
+
+.colors .color-holder, .board .peg {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #777;
+  margin-right: 8px;
+  border-radius: 21px;
+  cursor: pointer;
+  background-color: #F0EAED;
+} 
+
+.colors .red, .circles .red {
+  background-color: #E42244;
+}
+
+.colors .green, .circles .green {
+  background-color: #70C030;
+}
+
+.colors .orange, .circles .orange {
+  background-color: #FFBB36;
+}
+
+.colors .blue, .circles .blue {
+  background-color: #36BEDD;
+}
+
+.colors .purple, .circles .purple {
+  background-color: #9F66DF;
+}
+
+.colors .active {
+  border: 2px solid black;
+  border-radius: 21px;
+}
+
+.board {
+  margin-top: 15px;  
+}
+
+.board div {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+.board .circles {
+  margin-left: 5px;
+}
+
+.board .ok-button {    
+  font-size: 0.9em;
+  padding: 16px 0;  
+  color: #33AA88;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.board .ok-button.disabled {
+  color: #CCC0C6;
+  cursor: default;
+}
+
+.board .ok-button.hidden {
+  display: none;
+  cursor: default;
+}
+
+.board .row {
+  display: block;
+  border: 1px solid #D0CACD;
+  margin: 0 auto 3px auto;
+  max-width: 360px;
+}
+
+.board .row.active {
+  border:2px solid #BBAAAA;
+  background-color: #FFF9FC;
+}
+
+.board .hints {
+  margin-right: 0;
+} 
+
+.board .hints span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #777;
+  background-color: #F0EAED;  
+  margin: 15px 2px;
+  font-size: 0.75em;
+  padding: 0;
+}
+
+.board .hints span.exact {
+  background-color: #00BB22;  
+}
+
+.board .hints span.partial {
+  background-color: #DDBB22;  
+}
+
+.solution p {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.solution .hidden {
+  display: none;
+}
+
+.solution .color-holder {
+  cursor: default;
+}
+
+.solution a {
+  color: #338855;
+  font-size: 1.1em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.msg {
+  margin: 0.5em auto;
+}
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+html {
+  box-sizing: border-box;
+  background-color: #E2DADD;
+  font-family: 'Cabin', sans-serif;
+}
+
+#root {  
+  text-align: center;
+}
+
+#root h2 {
+  font-size: 2em;
+  margin: 0.67em 0 0.15em 0;  
+}
+
+.rules {
+  margin: 0.33em auto 0.8em auto;
+  max-width: 450px;
+}
+
+.rules h3 {
+  font-size: 1.05em;
+  margin: 5px 0 0 0;
+  color: #333;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.rules p {
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  margin: 5px 1em;
+  font-size: 0.92em;
+  color: #666;
+}
+
+.colors .color-holder, .board .peg {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #777;
+  margin-right: 8px;
+  border-radius: 21px;
+  cursor: pointer;
+  background-color: #F0EAED;
+} 
+
+.colors .red, .circles .red {
+  background-color: #E42244;
+}
+
+.colors .green, .circles .green {
+  background-color: #70C030;
+}
+
+.colors .orange, .circles .orange {
+  background-color: #FFBB36;
+}
+
+.colors .blue, .circles .blue {
+  background-color: #36BEDD;
+}
+
+.colors .purple, .circles .purple {
+  background-color: #9F66DF;
+}
+
+.colors .active {
+  border: 2px solid black;
+  border-radius: 21px;
+}
+
+.board {
+  margin-top: 15px;  
+}
+
+.board div {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+.board .circles {
+  margin-left: 5px;
+}
+
+.board .ok-button {    
+  font-size: 0.9em;
+  padding: 16px 0;  
+  color: #33AA88;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.board .ok-button.disabled {
+  color: #CCC0C6;
+  cursor: default;
+}
+
+.board .ok-button.hidden {
+  display: none;
+  cursor: default;
+}
+
+.board .row {
+  display: block;
+  border: 1px solid #D0CACD;
+  margin: 0 auto 3px auto;
+  max-width: 360px;
+}
+
+.board .row.active {
+  border:2px solid #BBAAAA;
+  background-color: #FFF9FC;
+}
+
+.board .hints {
+  margin-right: 0;
+} 
+
+.board .hints span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #777;
+  background-color: #F0EAED;  
+  margin: 15px 2px;
+  font-size: 0.75em;
+  padding: 0;
+}
+
+.board .hints span.exact {
+  background-color: #00BB22;  
+}
+
+.board .hints span.partial {
+  background-color: #DDBB22;  
+}
+
+.solution p {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.solution .hidden {
+  display: none;
+}
+
+.solution .color-holder {
+  cursor: default;
+}
+
+.solution a {
+  color: #338855;
+  font-size: 1.1em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.msg {
+  margin: 0.5em auto;
+} */
