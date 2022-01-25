@@ -3,18 +3,47 @@ import ButtonContainer from './ButtonContainer.js'
 import JobInfo from './JobInfo.js'
 
 const url = "https://course-api.com/react-tabs-project";
+//const url = "https://course";
 
 function UseEffectBasics() {
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
   const [id, setId] = useState(0);
 
-  const fetchJobs = async () => {
-    const reponse = await fetch(url);
-    const newJobs = await reponse.json();
-    setJobs(newJobs);
-    setLoading(false);
+  // const fetchJobs = () => {
+  // .then(response => response.json())
+  // .then(user => fetch(url))
+  // .then(response => response.json())
+
+  // }
+
+  const fetchJobs = async() => {
+    const response = fetch(url);
+      console.log(response);
+      const newJobs = await response;
+      console.log("newJob : ", newJobs.json());
+      setJobs(newJobs);
+         setLoading(false);
+    // try {
+    //   const response = await fetch(url);
+    //   console.log(response);
+    //   const response2 = fetch(url);
+    //   console.log(response2);
+    
+   
+    // } catch (err){
+    //   if (err instanceof TypeError) {
+    //     alert( "JSON Error: " + err.message );
+    //   } else {
+    //     throw err; // rethrow (*)
+    //   }
+      // alert( "Our apologies, the data has errors or url is broken, we'll try to request it one more time." );
+      // alert( err.name );
+      // alert( err.message );
+   // }
+    //catch
   };
+  //
 
   useEffect(() => {
     fetchJobs();
