@@ -1,0 +1,96 @@
+The user is shown a text box where they can enter text,
+ and if they do, we call the submit() function. 
+ The function copies what the user has typed into the 
+ output div tag, and clears the div tag if the text box is empty.
+
+submit() function just copies what the user types into the output.
+We want it to also check whether the user has made a spelling error.
+
+so just like search API call, I don't want to correct the user everytime(may be later we
+can do something like suggestion) but let say I will only show grammatical error once 
+the user press spacebar/enter
+
+Just to make it short:
+let say after the user press spacebar/or somehow we know, user has completed a word
+
+we can all our function 
+
+spellCheck() {
+    //this should take a word as input 
+    //or last char is whitespace then that last word should be passed in this fn;
+    //return the correct spelling of last word
+}
+
+similiarity
+
+
+getLength(), 
+setWordlist(), 
+spellCheck(), 
+isMisspelled(), 
+getSuggestions() and 
+checkAndSuggest()
+
+
+getLength()
+This method allows to get the quantity of words that the dictionary has.
+
+Returns:
+
+An integer with the number of words.
+setWordlist(wordlist)
+This method allows to set the words of the dictionary.
+
+Parameter:
+
+wordlist: an array of strings.
+spellCheck(word)
+This method allows to verify is a word is correctly written or not.
+
+Parameter:
+
+word: the word to verify.
+Returns:
+
+true if the word is in the dictionary, false if not.
+
+isMisspelled(word)
+This method allows to verify is a word is misspelled or not.
+
+Parameter:
+
+word: the word to verify.
+Returns:
+true if the word is misspelled, false if not
+
+getSuggestions(word [, limit] [, maxDistance]) //5
+This method allows to get spelling suggestions for a word.
+
+Parameters:
+
+word: the word used to generate the suggestions.
+limit: the maximum number of suggestions to get 
+(by default, 5).
+maxDistance: the maximum edit distance that 
+a word can have from the word parameter, in order to being considered as a valid suggestion (by default, 2).
+Returns:
+
+An array of strings.
+checkAndSuggest(word [, limit] 
+[, maxDistance])
+This method allows to verify if a word is misspelled
+ and to get spelling suggestions.
+
+Parameters:
+
+word: the word to verify.
+limit: the maximum number of suggestions to get (by default, 5).
+maxDistance: the maximum edit distance that a word 
+can have from the word parameter, in order to being 
+considered as a valid suggestion (by default, 2).
+
+Returns:
+
+An object with the fields misspelled, 
+which contains a boolean, and suggestions, 
+which contains an array of strings.
